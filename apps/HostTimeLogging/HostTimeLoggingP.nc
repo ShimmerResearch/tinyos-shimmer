@@ -1,4 +1,4 @@
-/* $Id: HostTimeLoggingP.nc,v 1.2 2010/09/08 17:54:17 ayer1 Exp $
+/* $Id: HostTimeLoggingP.nc,v 1.3 2010/09/13 16:37:37 ayer1 Exp $
  * Copyright (c) 2010, Shimmer Research, Ltd.
  * All rights reserved
  *
@@ -301,6 +301,7 @@ implementation {
   }
 
   task void fireUpSystem(){
+    call buttonNotify.disable();
 
     call UARTControl.disableUart();
 
