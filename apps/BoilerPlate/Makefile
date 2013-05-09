@@ -1,3 +1,5 @@
+# NB: As of May 2013 BoilerPlate is deprecated and replaced by the BtStream application
+
 COMPONENT=BoilerPlateAppC
 
 #defines

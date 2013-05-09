@@ -1,4 +1,8 @@
 /*
+ * NB: As of May 2013 BoilerPlate is deprecated and replaced by the BtStream application
+ */
+
+/*
  * Copyright (c) 2010, Shimmer Research, Ltd.
  * All rights reserved
  *

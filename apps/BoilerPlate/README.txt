@@ -1,3 +1,6 @@
+NB: As of May 2013 BoilerPlate is deprecated and replaced by the BtStream application
+
+
 This is a general purpose configurable application to be used with shimmer and any add-on daughter-cards supplied by shimmer-research.
 
 
