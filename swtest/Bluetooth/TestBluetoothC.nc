@@ -47,15 +47,15 @@ module TestBluetoothC {
 }
 
 implementation {
-  char msgbuf[128];
+  char msgbuf[29];
 
   event void Boot.booted(){
-    strcpy(msgbuf, "hello, bluetooth is awake!");
+    strcpy(msgbuf, "hello, bluetooth is awake!\n\r");
 
     call BluetoothInit.init();
     call Bluetooth.resetDefaults();
     call Bluetooth.setRadioMode(SLAVE_MODE);
-    call Bluetooth.setName("testUnit");
+    //call Bluetooth.setName("testUnit");
     call BTStdControl.start();
   }
 
@@ -68,6 +68,7 @@ implementation {
   }
 
   async event void Bluetooth.connectionMade(uint8_t status) { 
+    call Leds.led0Off();
     call Leds.led2On();
 
     call activityTimer.startPeriodic(1000);
@@ -75,6 +76,7 @@ implementation {
 
   async event void Bluetooth.connectionClosed(uint8_t reason){
     call Leds.led2Off();
+    call Leds.led0On();
     call activityTimer.stop();
   }
 
