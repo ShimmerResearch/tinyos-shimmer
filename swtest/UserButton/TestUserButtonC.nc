@@ -30,8 +30,8 @@
  */
 
 /**
- *   test app to provide an event -- and toggle the yellow led --
- *   when the shimmer2 is moved
+ *   test app to provide an event -- and toggle led 2 --
+ *   when the user button (on a dock or external expansion board) is pressed
  **/
 
 #include <UserButton.h>

@@ -29,8 +29,8 @@
  * 94704.  Attention:  Intel License Inquiry.
  */
 /**
- * UserButtonApp is a dirt-simple application that toggles the yellow led
- * on a shimmer2 after each debounced (see UserButtonP.nc) buttonpress from the dock.
+ * UserButtonApp is a dirt-simple application that toggles led 2
+ * on a shimmer after each debounced (see UserButtonP.nc) button press from the dock.
  *
  * @author tinyos-help@millennium.berkeley.edu
  **/
