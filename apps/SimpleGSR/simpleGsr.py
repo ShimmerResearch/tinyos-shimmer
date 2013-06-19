@@ -1,20 +1,18 @@
 #!/usr/bin/python
-#import serial
+import serial
 import sys, struct, array
-from bluetooth import *
 
 if len(sys.argv) < 2:
    print "no device specified"
-   print "You need to specifiy the MAC address of the shimmer you wish to connect to"
+   print "You need to specifiy the serial port of the shimmer you wish to connect to"
    print "example:"
-   print "  simpleGsr.py 00:06:66:42:24:18"
+   print "  simpleGsr.py COM5"
+   print "or"
+   print "  simpleGsr.py /dev/rfcomm0"
    print
 else:
-   port = 1;
-   host = sys.argv[1]
-
-   sock = BluetoothSocket( RFCOMM )
-   sock.connect((host, port))
+   ser = serial.Serial(sys.argv[1], 115200)
+   ser.flushInput()
 
    ddata = ""
    numbytes = 0
@@ -26,7 +24,7 @@ else:
    try:
       while True:
          while numbytes < framesize:
-            ddata += sock.recv(framesize)
+            ddata += ser.read(framesize)
             numbytes = len(ddata)
 
          data = ddata[0:framesize]
@@ -42,6 +40,6 @@ else:
                print
                num = 0
    except KeyboardInterrupt:
-      sock.close()
+      ser.close()
       print
       print "All done"
