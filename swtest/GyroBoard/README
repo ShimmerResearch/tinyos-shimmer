@@ -11,14 +11,12 @@ application starts, meaning at power-on or reset:
 Gyro<4-character hex number>  the lower 16 bits of the "mac address" of the shimmer's cc2420
 radio, unique.
 
-the letter M
-
 <3-digit sequence number> counting from 000.  this number increments
 each time the application is run.
 
 the directory name looks like this:
 
-Gyro<hex number>-M<sequence number>, e.g. Gyroe777-M038
+Gyro<hex number>-<sequence number>, e.g. Gyroe777-038
 
 this way, shimmer 'a' won't overwrite directories written by shimmer
 'b' if the card travels.  the user doesn't have to do anything.
@@ -27,7 +25,7 @@ NOTE: dock-related behaviour described below will not work with
 shimmer, only with shimmer2!
 
 files placed in this directory are also numbered sequentially,
-starting at 000; the suffix is ".pam" (e.g. 000.pam) a new file is
+starting at 000; there is no suffix (e.g. 000) a new file is
 created when a) the current file exceeds 1mb (about one hour), or b)
 when the app is interrupted by docking the shimmer2.
 
@@ -45,15 +43,14 @@ counting from '0' once it starts running.  in lieu of this important
 reference point, you can set a relative timestamp for the application
 at compile time by adding the CURRENT_TIME variable to the build
 command and having it run a python script to get the current time from
-the host.  try this:
-
-make shimmer2 CURRENT_TIME=`python timeSec.py` install bsl,/dev/ttyUSB0
-
-yes, those are back-quotes surrounding the python command.
+the host.
 
 this will give your app a date/time starting point when it runs; yes,
 it's the same one every time, but instead of seeing a disorienting
 date from 1911 on your files, you'll see something more meaningful.
 
+The included python script, testGyroBoard.py, can be run on the data files
+to convert them to the raw ADC values
 
-
+The LED on the 9DoF/Gyro daughter toggles when the user button on this
+daughter card is pressed
