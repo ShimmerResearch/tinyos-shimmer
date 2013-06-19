@@ -29,8 +29,8 @@
  * 94704.  Attention:  Intel License Inquiry.
  */
 /**
- * UserButtonApp is a dirt-simple application that toggles the yellow led
- * on a shimmer2 after each debounced (see UserButtonP.nc) buttonpress from the dock.
+ * a dirt-simple application that toggles led 2 everytime the (debounced) tilt
+ * switch event fires
  *
  * @author tinyos-help@millennium.berkeley.edu
  * port to tos-2.x
@@ -48,5 +48,4 @@ implementation {
 
   components TiltDetectorC;
   TestTiltSwitchC.buttonNotify -> TiltDetectorC;
-
 }
