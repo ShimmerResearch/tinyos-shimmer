@@ -78,7 +78,7 @@ A (very) brief description of the contents follows:
    Became BtStream  
 
 * apps/Legacy/GyroMag  
-   Streams gyroscope and magnetometer data over Bluetooth using the  
+   Streams gyroscope and magnetometer data over Bluetooth using the
    "BioMOBIUS" packet format  
    Superseded by BtStream  
 
