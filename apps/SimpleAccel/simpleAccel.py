@@ -12,11 +12,12 @@ else:
    ser = serial.Serial(sys.argv[1], 115200)
    ser.flushInput();
 
-   while True:
-      data = ser.read(120);
-      for i in range(0,120,8):
-         (accelx, accely, accelz, rawbatt) = struct.unpack('hhhh', data[i:i+8])
-         batt = rawbatt / 4095.0 * 3.0 * 2.0
-         print "%4d %4d %4d %5.2f" % (accelx, accely, accelz, batt)
-
-   ser.close()
+   try:
+      while True:
+         data = ser.read(120);
+         for i in range(0,120,8):
+            (accelx, accely, accelz, rawbatt) = struct.unpack('hhhh', data[i:i+8])
+            batt = rawbatt / 4095.0 * 3.0 * 2.0
+            print "%4d %4d %4d %5.2f" % (accelx, accely, accelz, batt)
+   except KeyboardInterrupt:
+      ser.close()
