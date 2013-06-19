@@ -58,15 +58,11 @@ counting from '0' once it starts running.  in lieu of this important
 reference point, you can set a relative timestamp for the application
 at compile time by adding the CURRENT_TIME variable to the build
 command and having it run a python script to get the current time from
-the host.  try this:
-
-make shimmer2 CURRENT_TIME=`python timeSec.py` install bsl,/dev/ttyUSB0
-
-yes, those are back-quotes surrounding the python command.
+the host.
 
 this will give your app a date/time starting point when it runs; yes,
 it's the same one every time, but instead of seeing a disorienting
 date from 1911 on your files, you'll see something more meaningful.
 
-
-
+The included python script, justFATLogging.py, can be run on the data files
+to convert them to the raw ADC values
