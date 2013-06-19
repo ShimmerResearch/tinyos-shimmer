@@ -122,7 +122,8 @@ def find_data_port(force_serial = False):
 				try:
 					file_to_search = open(f, 'r')
 					data  = file_to_search.read()
-					shimmer_match = re.compile('SHIMMER2 USB READER')
+#					shimmer_match = re.compile('SHIMMER2 USB READER')
+					shimmer_match = re.compile('FTDI SHIMMER DOCK 2')
 					if shimmer_match.search(data):
 						#	 return 'disk'
 						dirpath = os.path.dirname(f)
@@ -142,7 +143,7 @@ def find_data_port(force_serial = False):
 			try:
 				file_to_search = open(f, 'r')
 				data  = file_to_search.read()
-				shimmer_match = re.compile('^SHIMMER DUAL UART|^Dual RS232|^SHIMMER USB READER')
+				shimmer_match = re.compile('^SHIMMER DUAL UART|^Dual RS232|^SHIMMER USB READER|^SHIMMER DOCK')
 				if shimmer_match.search(data):
 					dirpath = os.path.dirname(f)
 					busnum = os.path.basename(dirpath)

@@ -4,7 +4,7 @@ import os, sys
 import array
 
 USAGE_TEXT = """
-Usage: read_em.py <datafile>
+Usage: hostTimeLogging.py <datafile>
 """
 
 def usage():
@@ -42,7 +42,7 @@ def print_em(data):
             print "file has truncated data at index %d" % i
             return
         
-        t = t + 0.02
+        t = t + 0.009765625
     
 def main(argv):                         
     if len(argv) < 1:

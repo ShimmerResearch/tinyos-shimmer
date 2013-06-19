@@ -60,6 +60,10 @@ after first programming the device and starting to log.  if it does
 happen at the outset, best to reset the shimmer and being again.  if
 it persists, you might want to check the card with your pc.
 
+The included python script, hostTimeLogging.py, can be run on the data files
+to convert them to the raw ADC values
+
+
 /******* CRITICAL TIMESTAMP STUFF! ************/
 
 about the directory/file timestamps: since this application does not

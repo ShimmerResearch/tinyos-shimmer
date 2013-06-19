@@ -4,9 +4,6 @@
 
 COMPONENT=HostTimeLoggingC
 
-#USE_IP=True
-#SELECT_WIRED_OR_WIRELESS=True
-
 PFLAGS += -DHOST_TIME
 
 # this tells the sd driver to use proper clock calibration for spi bus during card init
