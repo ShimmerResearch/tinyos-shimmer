@@ -122,8 +122,7 @@ def find_data_port(force_serial = False):
 				try:
 					file_to_search = open(f, 'r')
 					data  = file_to_search.read()
-#					shimmer_match = re.compile('SHIMMER2 USB READER')
-					shimmer_match = re.compile('FTDI SHIMMER DOCK 2')
+					shimmer_match = re.compile('SHIMMER2 USB READER')
 					if shimmer_match.search(data):
 						#	 return 'disk'
 						dirpath = os.path.dirname(f)
@@ -143,14 +142,15 @@ def find_data_port(force_serial = False):
 			try:
 				file_to_search = open(f, 'r')
 				data  = file_to_search.read()
-				shimmer_match = re.compile('^SHIMMER DUAL UART|^Dual RS232|^SHIMMER USB READER|^SHIMMER DOCK')
+				shimmer_match = re.compile('^SHIMMER DUAL UART|^Dual RS232|^SHIMMER USB READER|^SHIMMER DOCK|^SHIMMER2 USB READER')
 				if shimmer_match.search(data):
 					dirpath = os.path.dirname(f)
 					busnum = os.path.basename(dirpath)
 					myglob =  dirpath + '/' + busnum + ':1.1/tty*'
-					portpath = glob.glob(myglob)[0]
-					port = '/dev/' + os.path.basename(portpath)
-					return port
+					if glob.glob(myglob): 
+					   portpath = glob.glob(myglob)[0]
+					   port = '/dev/' + os.path.basename(portpath)
+					   return port
 			except IOError:
 				pass
 
