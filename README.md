@@ -89,7 +89,7 @@ A (very) brief description of the contents follows:
    Superseded by SdLog  
 
 * apps/Legacy/ParamLogging  
-   Configurable sensing application that logs to SD card
+   Configurable sensing application that logs to SD card  
    Superseded by SdLog  
 
 * apps/Legacy/TestGyroBoard  
