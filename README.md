@@ -20,7 +20,7 @@ A (very) brief description of the contents follows:
    List of identifiers used by applications to identify themselves  
 
 * apps/GpsSleep  
-   Simple application that shows how to save power on a shimer with a GPS  
+   Simple application that shows how to save power on a shimer with a GPS
    daughter card attached (when the daughter card's sensors are not in use)  
 
 * apps/JustFATLogging  
@@ -30,46 +30,46 @@ A (very) brief description of the contents follows:
    Simple application that streams accelerometer data over Bluetooth  
 
 * apps/SimpleAccelGyro  
-   Simple application that streams accelerometer and gyroscope data over the  
+   Simple application that streams accelerometer and gyroscope data over the
    802.15.4 radio  
 
 * apps/SimpleGSR  
    Simple application that streams GSR data over Bluetooth  
 
 * apps/SyncedRadioTx  
-   Application that demonstrates how to coordinate multiple shimmers  
+   Application that demonstrates how to coordinate multiple shimmers
    transmitting over the 802.15.4 radio at (relatively) high data rates  
 
 * apps/TestBluetooth  
-   Simple application to demonstrate how to use the Bluetooth radio (in   
+   Simple application to demonstrate how to use the Bluetooth radio (in
    slave mode)  
 
 * apps/TestGPS  
-   Simple application that demonstrates how to use the GPS daughter card  
+   Simple application that demonstrates how to use the GPS daughter card
 
 * apps/TestSerialTime  
-   Simple application to demonstrate how to send a "real world" timestamp to  
+   Simple application to demonstrate how to send a "real world" timestamp to
    a shimmer of the serial port  
 
 * apps/TestTiltSwitch  
-   Simple application to demonstrate how to use the tilt switch on shimmer2  
+   Simple application to demonstrate how to use the tilt switch on shimmer2
    and shimmer2r devices  
 
 * apps/TestUserButton  
-   Simple application to demonstrate how to make use of the user button on  
+   Simple application to demonstrate how to make use of the user button on
    the dock or external expansion board  
 
 * apps/Legacy  
-   This directory contains applications that have been superseded by newer  
+   This directory contains applications that have been superseded by newer
    applications  
 
 * apps/Legacy/AccelECG  
-   Streams accelerometer and ECG data over Bluetooth using the "BioMOBIUS"  
+   Streams accelerometer and ECG data over Bluetooth using the "BioMOBIUS"
    packet format  
    Superseded by BtStream  
 
 * apps/Legacy/AccelGyro  
-   Streams accelerometer and gyroscope data over Bluetooth using the   
+   Streams accelerometer and gyroscope data over Bluetooth using the
    "BioMOBIUS" packet format  
    Superseded by BtStream  
 
@@ -84,12 +84,12 @@ A (very) brief description of the contents follows:
 
 * apps/Legacy/HostTimeLogging  
    Logs accelerometer data to SD card  
-   Also demonstrates how to read a "real world" timestamp over the shimmer's  
+   Also demonstrates how to read a "real world" timestamp over the shimmer's
    serial port  
    Superseded by SdLog  
 
 * apps/Legacy/ParamLogging  
-   Configurable sensing application that logs to SD card  
+   Configurable sensing application that logs to SD card
    Superseded by SdLog  
 
 * apps/Legacy/TestGyroBoard  
