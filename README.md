@@ -26,7 +26,7 @@ A (very) brief description of the contents follows:
 * apps/JustFATLogging  
    Simple application that logs accelerometer data to the SD card  
 
-* apps/SDLog
+* apps/SDLog  
    Fully configurable logging to SD card with relative time synchronisation
 
 * apps/SimpleAccel  
