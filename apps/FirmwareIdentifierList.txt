@@ -1,3 +1,4 @@
 # The Firmware Identifier is a 2 byte identifier used by applications to identify to user level applications
 # This is the master list of current firmware identifiers:
 BtStream          1  # BtStream application (configurable app that streams sensor data over Bluetooth)
+SDLog             2  # SDLog application (configurable app that logs sensor data to SD card and allows synchronisation between Shimmers over 802.15.4 radio)

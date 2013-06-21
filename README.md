@@ -14,7 +14,7 @@ A (very) brief description of the contents follows:
    Simple application that demonstrates how to use Bluetooth master mode  
 
 * apps/BtStream  
-   All purpose configurable Bluetooth sensing and streaming application  
+   All purpose configurable Bluetooth sensing and streaming application 
 
 * apps/FirmwareIdentifireList.txt  
    List of identifiers used by applications to identify themselves  
@@ -25,6 +25,9 @@ A (very) brief description of the contents follows:
 
 * apps/JustFATLogging  
    Simple application that logs accelerometer data to the SD card  
+
+* apps/SDLog
+   Fully configurable logging to SD card with relative time synchronisation
 
 * apps/SimpleAccel  
    Simple application that streams accelerometer data over Bluetooth  
