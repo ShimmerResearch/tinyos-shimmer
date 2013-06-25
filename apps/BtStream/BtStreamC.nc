@@ -1104,6 +1104,8 @@ implementation {
          call shimmerAnalogSetup.triggerConversion();
       else if((nbr_1byte_digi_chans > 0) || (nbr_2byte_digi_chans > 0))
          post clockin_result();
+      else
+         post sendSensorData();      
    }
 
 
