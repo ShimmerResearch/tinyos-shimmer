@@ -1754,7 +1754,6 @@ implementation {
 
   async event void FatFs.mediaAvailable() {    
       uint16_t i, j, k;
-      CS_LOW(); // card select (SD)
       TOSH_MAKE_DOCK_N_INPUT();
       atomic if(TOSH_READ_DOCK_N_PIN()){ // we've been pulled off the dock
           docked = FALSE;
@@ -1763,7 +1762,9 @@ implementation {
           waiting_for_hosttime = FALSE;
           call UARTControl.disableIntr();
 
-          for(i = 0; i < 5; i++){ // wait five seconds
+          i = 0;
+          while(TOSH_READ_DOCK_N_PIN() && i < 5){ // wait five seconds or until docked
+              i++;
               call Leds.led2On();
               for(j = 0; j < 400; j ++) // 500 ms (approx)
                   __delay_cycles(1000);
@@ -1773,8 +1774,21 @@ implementation {
                       __delay_cycles(1000);
               }
           }
+          atomic if(TOSH_READ_DOCK_N_PIN()){ // make sure that we haven't been put back on the dock
+              CS_LOW(); // card select (SD)
+              post getSamplingConfig();
+          }
+          else{ // we're back on the dock but interrupt won't have been received so prepare the next session here.
+              docked = TRUE;
+              
+              powerCycle();
+              
+              post startup();
 
-          post getSamplingConfig();
+              post prepareNewSession();
+
+              call FatFs.enableDock();
+          }
       }
   }
   
