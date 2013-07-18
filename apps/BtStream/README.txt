@@ -238,3 +238,5 @@ Changelog:
    - make the STOP_STREAMING_COMMAND synchronous with respect to the sample period
       - seems to fix the issue with the mag causing the shimmer to lock up when stopping streaming
    - added commands to get and set the mag gain and mag sampling rate
+- 26 June 2013 (v1.2.0)
+   - fixed bug if no sensors are configured (allows timestamp to still be streamed)

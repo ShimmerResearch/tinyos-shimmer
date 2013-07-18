@@ -25,5 +25,5 @@ endif
 CFLAGS += -DFW_IDENTIFIER=1   # Two byte firmware identifier number
                               # See FirmwareIdentifierList.txt
 CFLAGS += -DFW_VER_MAJOR=1    # Major version number: 0-65535U
-CFLAGS += -DFW_VER_MINOR=1    # Minor version number: 0-255
+CFLAGS += -DFW_VER_MINOR=2    # Minor version number: 0-255
 CFLAGS += -DFW_VER_REL=0      # Release candidate version number: 0-255
