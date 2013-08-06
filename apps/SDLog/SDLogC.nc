@@ -52,7 +52,7 @@ module SDLogC {
 
     interface Msp430DmaChannel as DMA0;
 
-    interface IDChip;
+    interface ReadId48 as IDChip;
 
     interface Init as AccelInit;
     interface Mma_Accel as Accel;
@@ -141,7 +141,7 @@ implementation {
   bool write_ongoing = FALSE;
  
   // 1-bye variables
-  uint8_t longAddress[8], NUM_ADC_CHANS = 0, dirname[64], exp_dir_name[32], filename[64], idname[12], exp_id_name[12], max_chars = 12, shimmername[12]; 
+  uint8_t longAddress[6], NUM_ADC_CHANS = 0, dirname[64], exp_dir_name[32], filename[64], idname[12], exp_id_name[12], max_chars = 12, shimmername[12]; 
   uint8_t readBuf[8], bytes_per_sample, offset_sign = 0, sensor_array[16], mag_channels;
   uint8_t accel_range = 0, gsr_range = 0, mag_range = 1, mag_rate = 4, active_resistor; 
   uint8_t data_to_send[8], max_time_bytes = 8, total_bytes = 0, bytes_sent = 0, host_time[8], time_bytes_received = 0;
@@ -253,7 +253,7 @@ implementation {
 
     // first we'll make the shimmer mac address into a string
      if(strlen(shimmername)==0) // if name hasn't been assigned by user, use default (from Shimmer mac address)
-        sprintf(shimmername, "ID%02x%02x", longAddress[4], longAddress[5]); // the "x" will be deleted in the next step
+        sprintf(shimmername, "ID%02x%02x", longAddress[1], longAddress[0]); // the "x" will be deleted in the next step
 
      if(strlen(exp_id_name)==0) // if name hasn't been assigned by user, use default (from Shimmer mac address)
         sprintf(exp_id_name, "default_exp"); 
@@ -1800,8 +1800,6 @@ implementation {
 
           powerCycle();
 
-          TOSH_MAKE_DOCK_N_INPUT();
-
           call AMRadioControl.stop();
 
           post startup();
@@ -1829,7 +1827,7 @@ implementation {
   async event void GyroBoard.buttonPressed() {}
 
   async event void UARTData.rxDone(uint8_t data){
-      if(waiting_for_hosttime){
+/*      if(waiting_for_hosttime){
           *data_to_send = 1;
           total_bytes = 1;
           bytes_sent = 0; 
@@ -1858,18 +1856,18 @@ implementation {
               bytes_sent = 0;
               sendSerial();
           }
-      }
+      }*/
    }
 
-  void sendSerial(){
+/*  void sendSerial(){
       while(!call UARTControl.isTxEmpty());
       call UARTControl.tx((*(data_to_send + bytes_sent) & 0xFF));
   }
-
+*/
   async event void UARTData.txDone() {
-      bytes_sent++;
+/*      bytes_sent++;
       if(bytes_sent < total_bytes)
-          sendSerial();
+          sendSerial(); */
   }
 
 
