@@ -73,8 +73,8 @@ implementation {
   HostTimeLoggingP.PowerSupplyMonitor -> PowerSupplyMonitorC;
 
   // we're writing this for shimmer*, so skipping the ifdef...
-  components HplDs2411C;
-  HostTimeLoggingP.IDChip     -> HplDs2411C;
+  components Ds2411C;
+  HostTimeLoggingP.IDChip     -> Ds2411C.ReadId48;
 
   components TimeC;
   MainC.SoftwareInit   -> TimeC;

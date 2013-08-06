@@ -89,8 +89,8 @@ implementation {
   components new Msp430Usart0C();
   ParamLoggingP.Usart     -> Msp430Usart0C;
 
-  components HplDs2411C;
-  ParamLoggingP.IDChip     -> HplDs2411C;
+  components Ds2411C;
+  ParamLoggingP.IDChip     -> Ds2411C.ReadId48;
 
   components TimeC;
   MainC.SoftwareInit   -> TimeC;

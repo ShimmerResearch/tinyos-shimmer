@@ -48,7 +48,7 @@ module ParamLoggingP {
 
     interface Msp430DmaChannel as DMA0;
 
-    interface IDChip;
+    interface ReadId48 as IDChip;
 
     interface Init as AccelInit;
     interface Mma_Accel as Accel;
@@ -87,7 +87,7 @@ implementation {
   task void collect_results();
 
   uint8_t endo = 0;
-  uint8_t stop_storage = 0, longAddress[8], directory_set, bad_opendir, bad_mkdir, NUM_ADC_CHANS = 0, justbooted;
+  uint8_t stop_storage = 0, longAddress[6], directory_set, bad_opendir, bad_mkdir, NUM_ADC_CHANS = 0, justbooted;
   norace uint8_t current_buffer = 0, dma_blocks = 0;
   uint16_t sequence_number = 0, sample_period, dir_counter, fs_block_size, block_samples;
   int16_t sbuf0[512], sbuf1[512], * mag_slot;
@@ -127,7 +127,7 @@ implementation {
     char lfn[_MAX_LFN + 1], * fname, * scout, dirnum[8];
 
     // first we'll make the shimmer mac address into a string
-    sprintf(idname, "ID%02x%02x", longAddress[4], longAddress[5]);
+    sprintf(idname, "ID%02x%02x", longAddress[1], longAddress[0]);
 
     gfi.lfname = lfn;
     gfi.lfsize = sizeof(lfn);

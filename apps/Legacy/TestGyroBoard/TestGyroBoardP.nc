@@ -41,7 +41,7 @@ module TestGyroBoardP {
 
     interface Msp430DmaChannel as DMA0;
 
-    interface IDChip;
+    interface ReadId48 as IDChip;
 
     interface StdControl as GyroStdControl;
     interface GyroBoard;
@@ -61,7 +61,7 @@ implementation {
 
   void do_stores();
 
-  uint8_t stop_storage = 0, longAddress[8], directory_set, bad_opendir, bad_mkdir, NUM_ADC_CHANS;
+  uint8_t stop_storage = 0, longAddress[6], directory_set, bad_opendir, bad_mkdir, NUM_ADC_CHANS;
   norace uint8_t current_buffer = 0, dma_blocks = 0;
   uint16_t sbuf0[512], sbuf1[512], sequence_number = 0, sample_period, dir_counter;
   uint8_t dirname[128], filename[128], dir_hour = 0, idname[13];
@@ -87,10 +87,10 @@ implementation {
     // first we'll make the shimmer mac address into a string
 #ifdef ABBREVIATED_ID
     sprintf(idname, "Gyro%02x%02x", 
-	    longAddress[4], longAddress[5]);
+	    longAddress[1], longAddress[0]);
 #else
     sprintf(idname, "%02x%02x%02x%02x%02x%02x", 
-	    longAddress[0], longAddress[1], longAddress[2], longAddress[3], longAddress[4], longAddress[5]);
+	    longAddress[5], longAddress[4], longAddress[3], longAddress[2], longAddress[1], longAddress[0]);
 #endif
     gfi.lfname = lfn;
     gfi.lfsize = sizeof(lfn);
