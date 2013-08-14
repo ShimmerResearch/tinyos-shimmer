@@ -221,7 +221,7 @@ implementation {
 
   inline float atof(char *string){
       char *decimal;
-      uint8_t decimal_string[8], num_chars;
+      uint8_t decimal_string[12], num_chars;
       int32_t integer;
       float fraction;
       
@@ -234,7 +234,7 @@ implementation {
           decimal++;
           num_chars = snprintf(decimal_string, 4, "%s", decimal); // copy up to three decimal places
 
-          fraction = (float)atoi(decimal_string)/pow(10.0, num_chars-1);
+          fraction = ((float)atoi(decimal_string))/pow(10.0, num_chars<4?num_chars-1:3);
 
           if(strchr(string, '-')) // check the sign to correctly apply the fraction part
               return (float)integer - fraction;
@@ -860,7 +860,7 @@ implementation {
     uint16_t address;
     bool sensor_found = FALSE;
     float value;
-    int8_t rounded_value;
+    int16_t rounded_value;
     error_t res;
 
     DIR gdc;
@@ -928,8 +928,9 @@ implementation {
                     value = atof(equals);
                     if((sensor == S_GYRO) & (i >= 3))
                         value *= 100;
-                    stored_config[address + 2*i] = ((int16_t)(value + 0.5) & 0xFF00) >> 8;
-                    stored_config[address + 2*i + 1] = ((int16_t)(value + 0.5) & 0xFF);
+                    rounded_value = (int16_t)(value>=0?value+0.5:value-0.5);
+                    stored_config[address + 2*i] = (rounded_value & 0xFF00) >> 8;
+                    stored_config[address + 2*i + 1] = (rounded_value & 0xFF);
                 }
                 for(i = 0; i < num_1byte_params; i++){ 
                     fgets(buffer, 64, &gfc);
@@ -939,8 +940,8 @@ implementation {
                     }
                     equals ++;
                     value = atof(equals)*100;
-                    rounded_value = (int8_t)(value>=0?value+0.5:value-0.5);
-                    stored_config[address + 2*num_2byte_params + i] = (rounded_value);
+                    rounded_value = (int16_t)(value>=0?value+0.5:value-0.5);
+                    stored_config[address + 2*num_2byte_params + i] = (int8_t)(rounded_value);
                 }
                 call FatFs.fclose(&gfc);
                 break;
