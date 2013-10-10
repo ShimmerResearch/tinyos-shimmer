@@ -969,7 +969,7 @@ implementation {
            else if (accel_range == RANGE_4_0G)
                sensitivity = 38;
            else //(accel_range == RANGE_6_0G)
-               sensitivity = 250;
+               sensitivity = 25;
            align = TRUE;
            align_xx = -100;
            align_xy = 0;
