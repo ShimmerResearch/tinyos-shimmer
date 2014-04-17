@@ -1015,6 +1015,7 @@ implementation {
            address = NV_MAG_CALIBRATION;
        }
        else if(sensor==S_ECG){
+           number_axes = 2;
            bias = 2060;
            sensitivity = 175;
            address = NV_ECG_CALIBRATION;
@@ -1723,10 +1724,10 @@ implementation {
 
       // This will allow the host time to be received if requested (by user button on dock)
       if(docked){
-          setupUART();
-          call UARTControl.enableUart();
-          call UARTControl.enableIntr();
-          waiting_for_hosttime = TRUE;
+//          setupUART();
+//          call UARTControl.enableUart();
+//          call UARTControl.enableIntr();
+//          waiting_for_hosttime = TRUE;
       }
       else if(singletouch && !iAmMaster){ // Slave: turn on radio and wait for start message
             if(!radio_enabled)
