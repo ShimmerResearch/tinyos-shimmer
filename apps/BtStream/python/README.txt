@@ -5,6 +5,8 @@ Each of these have been tested using python 2.7.3.
 These demonstrate three different methods of communicating with the shimmer: using pyserial (http://pyserial.sourceforge.net/) which is fully cross platform, pybluez on Linux (http://code.google.com/p/pybluez/), and LightBlue on Mac OS (http://lightblue.sourceforge.net/). 
 From experience pybluez seems more reliable when making a connection with a shimmer in Linux than pyserial.
 
+BtStreamAccel_Linux.py uses pybluez , BtStreamAccel_Mac.py uses LightBlue and all others use pyserial.
+
 The pyserial examples have each been tested in Linux (Ubuntu 10.04), Windows (XP and Win7) and Mac OS X (10.4 and 10.6).
 
 Example applications:
