@@ -1,11 +1,12 @@
 # NB: As of May 2013 BoilerPlate is deprecated and replaced by the BtStream application
 
 COMPONENT=BoilerPlateAppC
+TINYOS_ROOT_DIR?=../..
+include $(TINYOS_ROOT_DIR)/Makefile.include
 
 #defines
 CFLAGS += -DUSE_8MHZ_CRYSTAL
 
-include $(MAKERULES)
 ifeq ($(PLATFORM),shimmer2r)
    CFLAGS += -DPWRMUX_UTIL
    CFLAGS += -DSHIMMER_VER=2

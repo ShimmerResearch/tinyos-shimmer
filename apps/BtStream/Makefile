@@ -1,4 +1,6 @@
 COMPONENT=BtStreamAppC
+TINYOS_ROOT_DIR?=../..
+include $(TINYOS_ROOT_DIR)/Makefile.include
 
 #defines
 CFLAGS += -DUSE_8MHZ_CRYSTAL
@@ -8,8 +10,6 @@ CFLAGS += -DUSE_8MHZ_CRYSTAL
                               # changed. Equally it needs to be changed back
                               # to the default if/when this flag is no longer
                               # being used
-
-include $(MAKERULES)
 
 #used to identify shimmer version
 ifeq ($(PLATFORM),shimmer2r)

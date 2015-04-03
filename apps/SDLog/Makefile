@@ -1,10 +1,10 @@
 COMPONENT=SDLogAppC
+TINYOS_ROOT_DIR?=../..
+include $(TINYOS_ROOT_DIR)/Makefile.include
 
 # this tells the sd driver to use proper clock calibration for spi bus during card init
 PFLAGS += -DSMCLK_4MHZ
 
-
-include $(MAKERULES)
 
 CFLAGS += -DFATFS_REALTIME=0 # for lower ROM requirement
 
