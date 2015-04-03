@@ -1,4 +1,6 @@
 COMPONENT=SimpleAccelGyroAppC
+TINYOS_ROOT_DIR?=../..
+include $(TINYOS_ROOT_DIR)/Makefile.include
 
 CFLAGS+=-DTOSH_DATA_LENGTH=100 #max is 114
 
@@ -9,4 +11,4 @@ CFLAGS+=-DTOSH_DATA_LENGTH=100 #max is 114
 
 #CFLAGS+=-DCC2420_DEF_CHANNEL=0x1A
 
-include $(MAKERULES)
+

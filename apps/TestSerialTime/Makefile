@@ -1,4 +1,5 @@
 COMPONENT=TestSerialTimeAppC
-include $(MAKERULES)
+TINYOS_ROOT_DIR?=../..
+include $(TINYOS_ROOT_DIR)/Makefile.include
 
 PFLAGS += -DHOST_TIME
